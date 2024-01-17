@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { createContext } from "react";
 import api from "../services/config";
@@ -31,4 +31,10 @@ const ProductsProvider = ({ children }) => {
   );
 };
 
+const useProducts = () => {
+  const products = useContext(ProductContext);
+  return products;
+};
+
 export default ProductsProvider;
+export { useProducts };

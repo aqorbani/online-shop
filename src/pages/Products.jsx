@@ -1,8 +1,8 @@
-
+import { useProducts } from "../context/ProductsContext";
 const Products = () => {
-  return (
-    <div>Products</div>
-  )
-}
+  const products = useProducts();
+  console.log(products)
+  return <div>Products</div>;
+};
 
-export default Products
+export default Products;
