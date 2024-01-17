@@ -1,10 +1,18 @@
+import { Routes, Route, Navigate } from "react-router-dom";
+import Products from "./pages/Products";
+import ProductDetail from "./pages/ProductDetail";
+import Checkout from "./pages/Checkout";
+import PageNotFound from "./pages/PageNotFound";
+
 function App() {
   return (
-    <>
-      <div className="flex justify-center items-center text-center">
-        Online Shop
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<Navigate to="products" replace />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/products/:id" element={<ProductDetail />} />
+      <Route path="/checkout" element={<Checkout />} />
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
   );
 }
 
