@@ -2,10 +2,12 @@
 import { BiSolidCategory } from "react-icons/bi";
 import { createQueryObject } from "../helpers/helper";
 import PropTypes from "prop-types";
+import categories from "../constants/CategoryList";
 
-const SideBar = ({ setQuery }) => {
+const SideBar = ({ setQuery, query }) => {
   SideBar.propTypes = {
     setQuery: PropTypes.func,
+    query: PropTypes.object,
   };
 
   const categoryHandler = (e) => {
@@ -17,17 +19,25 @@ const SideBar = ({ setQuery }) => {
   };
   return (
     <div>
-      <div className="hidden md:block">
-        <div className="flex p-1">
+      <div className="hidden md:block p-2 bg-white border border-gray-200 rounded-lg shadow overflow-hidden">
+        <div className="flex sign border-b-2 border-dashed mb-2 pb-2">
           <BiSolidCategory />
           <p>Categories</p>
         </div>
         <div>
           <ul className="cursor-pointer" onClick={(e) => categoryHandler(e)}>
-            <li>All</li>
-            <li>electronics</li>
-            <li>jewelery</li>
-            <li>men's clothing</li>
+            {categories.map((item) => (
+              <li
+                className={
+                  query.category === item.type.toLocaleLowerCase()
+                    ? "selected-text"
+                    : "hover-text"
+                }
+                key={item.id}
+              >
+                {item.type}
+              </li>
+            ))}
           </ul>
         </div>
       </div>

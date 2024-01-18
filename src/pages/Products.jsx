@@ -45,7 +45,7 @@ const Products = () => {
       </div>
       <div className="flex-col md:flex md:flex-row-reverse w-full d-">
         <div className="w-full md:w-1/6 p-2">
-          <SideBar setQuery={setQuery} />
+          <SideBar query={query} setQuery={setQuery} />
         </div>
         <div className="flex flex-wrap justify-between items-center w-full md:w-5/6">
           {!displayed.length && <Loading wh={80} />}

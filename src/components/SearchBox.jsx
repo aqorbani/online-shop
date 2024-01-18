@@ -13,7 +13,7 @@ const SearchBox = ({ setQuery, setSearch, search }) => {
   };
 
   return (
-    <div>
+    <div className="flex">
       <input
         type="text"
         className="form-input mr-2 rounded"
