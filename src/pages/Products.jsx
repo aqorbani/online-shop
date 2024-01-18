@@ -5,16 +5,16 @@ const Products = () => {
   console.log(products);
 
   return (
-    <div className="items-col bg-gray-200">
+    <div className="items-col bg-white">
       <div className="w-full">header</div>
-      <div className="flex w-full">
-        <div className="flex flex-wrap justify-between items-center w-10/12">
+      <div className="flex-col md:flex md:flex-row-reverse w-full d-">
+        <div className="w-full md:w-1/6">sidebar</div>
+        <div className="flex flex-wrap justify-between items-center w-full md:w-5/6">
           {!products.length && <p>Loading . . .</p>}
           {products.map((item) => (
             <ProductsCard key={item.id} data={item} />
           ))}
         </div>
-        <div className="w-1/4">sidebar</div>
       </div>
     </div>
   );
