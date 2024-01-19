@@ -7,7 +7,7 @@
 }
 
 .sign {
-  @apply bg-white text-lime-900 font-extrabold text-xl;
+  @apply text-lime-900 font-extrabold text-xl;
 }
 
 .selected-text {

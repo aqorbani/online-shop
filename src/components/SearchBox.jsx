@@ -13,10 +13,10 @@ const SearchBox = ({ setQuery, setSearch, search }) => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex justify-between">
       <input
         type="text"
-        className="form-input mr-2 rounded"
+        className="form-input mr-1 rounded w-3/4 border-none"
         placeholder="Search"
         value={search}
         onChange={(e) => setSearch(e.target.value.toLocaleLowerCase().trim())}

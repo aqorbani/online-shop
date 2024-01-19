@@ -3,11 +3,14 @@ import { BiSolidCategory } from "react-icons/bi";
 import { createQueryObject } from "../helpers/helper";
 import PropTypes from "prop-types";
 import categories from "../constants/CategoryList";
+import SearchBox from "../components/SearchBox";
 
-const SideBar = ({ setQuery, query }) => {
+const SideBar = ({ setQuery, query, search, setSearch }) => {
   SideBar.propTypes = {
     setQuery: PropTypes.func,
     query: PropTypes.object,
+    search: PropTypes.string,
+    setSearch: PropTypes.func,
   };
 
   const categoryHandler = (e) => {
@@ -19,7 +22,10 @@ const SideBar = ({ setQuery, query }) => {
   };
   return (
     <div>
-      <div className="hidden md:block p-2 bg-white border border-gray-200 rounded-lg shadow overflow-hidden">
+      <div className="p-2 mb-4 bg-white border border-gray-200 rounded-lg shadow overflow-hidden">
+        <SearchBox setQuery={setQuery} search={search} setSearch={setSearch} />
+      </div>
+      <div className="hidden lg:block p-2 bg-white border border-gray-200 rounded-lg shadow overflow-hidden">
         <div className="flex sign border-b-2 border-dashed mb-2 pb-2">
           <BiSolidCategory />
           <p>Categories</p>
@@ -42,7 +48,7 @@ const SideBar = ({ setQuery, query }) => {
         </div>
       </div>
       <select
-        className="md:hidden w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-gray-800"
+        className="w-full lg:hidden p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-gray-800"
         onClick={(e) => categoryHandler(e)}
       >
         <option>All</option>

@@ -9,7 +9,6 @@ import {
 } from "../helpers/helper";
 import { useSearchParams } from "react-router-dom";
 import SideBar from "../components/SideBar";
-import SearchBox from "../components/SearchBox";
 
 const Products = () => {
   const products = useProducts();
@@ -39,15 +38,16 @@ const Products = () => {
 
   return (
     <div className="items-col bg-white">
-      <div className="w-full">header</div>
-      <div className="flex w-full  m-5">
-        <SearchBox setQuery={setQuery} search={search} setSearch={setSearch} />
-      </div>
-      <div className="flex-col md:flex md:flex-row-reverse w-full d-">
-        <div className="w-full md:w-1/6 p-2">
-          <SideBar query={query} setQuery={setQuery} />
+      <div className="flex-col lg:flex lg:flex-row-reverse w-full">
+        <div className="w-full lg:w-1/6 p-2">
+          <SideBar
+            query={query}
+            setQuery={setQuery}
+            search={search}
+            setSearch={setSearch}
+          />
         </div>
-        <div className="flex flex-wrap justify-between items-center w-full md:w-5/6">
+        <div className="flex flex-wrap justify-between items-center w-full lg:w-5/6">
           {!displayed.length && <Loading wh={80} />}
           {displayed.map((item) => (
             <ProductsCard key={item.id} data={item} />
