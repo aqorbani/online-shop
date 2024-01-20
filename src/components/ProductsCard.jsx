@@ -1,12 +1,11 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { IoBagCheckOutline } from "react-icons/io5";
+import { IoMdCart } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { productQuantity, shortenText } from "../helpers/helper";
 import { useCart } from "../context/CartContext";
-import { FaInfo } from "react-icons/fa";
 
 const ProductsCard = ({ data }) => {
   ProductsCard.propTypes = {
@@ -27,13 +26,12 @@ const ProductsCard = ({ data }) => {
     <div className="w-full md:w-1/5 md:mb-10 m-2 p-3 bg-white border border-gray-200 rounded-lg shadow overflow-hidden">
       <img src={image} alt={title} className="w-full sm:48 md:h-52 lg:h-56" />
       <Link to={`/products/${id}`}>
-        <h3 className="p-3 text-lime-700 font-bold">{shortenText(title)}</h3>
+        <h3 className="flex p-3 text-lime-700 font-bold">
+          {shortenText(title)}
+        </h3>
       </Link>
       <p className="p-2">${price}</p>
       <div className="flex justify-between p-3">
-        <Link to={`/products/${id}`} className="btn">
-          <FaInfo />
-        </Link>
         {quantity === 1 && (
           <button className="btn" onClick={() => clickHandler("REMOVE_ITEM")}>
             <MdOutlineDeleteForever />
@@ -46,8 +44,11 @@ const ProductsCard = ({ data }) => {
         )}
         {!!quantity && <span className="sign p-3">{quantity}</span>}
         {quantity === 0 ? (
-          <button className="btn" onClick={() => clickHandler("ADD_ITEM")}>
-            <IoBagCheckOutline />
+          <button
+            className="btn w-full flex justify-center"
+            onClick={() => clickHandler("ADD_ITEM")}
+          >
+            <IoMdCart />
           </button>
         ) : (
           <button className="btn" onClick={() => clickHandler("INCREASE")}>
