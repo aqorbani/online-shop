@@ -24,7 +24,7 @@ const ProductsCard = ({ data }) => {
   };
 
   return (
-    <div className="w-full md:w-1/5 m-2 lg:m- p-3 bg-white border border-gray-200 rounded-lg shadow overflow-hidden">
+    <div className="w-full md:w-1/5 md:mb-10 m-2 p-3 bg-white border border-gray-200 rounded-lg shadow overflow-hidden">
       <img src={image} alt={title} className="w-full sm:48 md:h-52 lg:h-56" />
       <Link to={`/products/${id}`}>
         <h3 className="p-3 text-lime-700 font-bold">{shortenText(title)}</h3>

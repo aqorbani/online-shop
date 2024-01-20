@@ -25,15 +25,22 @@ const Layout = ({ children }) => {
             <p className="p-2">Online Shop</p>
           </div>
         </Link>
-        <Link to="/checkout" className="inline-flex items-center rounded-md bg-lime-900 px-2 py-1 text-xs font-bold text-white">
+        <Link
+          to="/checkout"
+          className="relative inline-flex items-center rounded-md bg-lime-900 px-2 py-1 text-xs font-bold text-white"
+        >
           {!!state.itemsCounter && (
-            <span className="p-1">{state.itemsCounter}</span>
+            <>
+              <span className="p-1 animate-bounce duration-[2000ms]">{state.itemsCounter}</span>
+            </>
           )}
           <HiMiniShoppingCart className="p-1 text-2xl" />
         </Link>
       </header>
       {children}
-      <footer className="flex justify-center p-2 m-2 bg-white border border-gray-200 rounded-lg shadow">© 2024 A.Qorbani . All rights reserved.</footer>
+      <footer className="flex justify-center p-2 m-2 bg-white border border-gray-200 rounded-lg shadow">
+        © 2024 A.Qorbani . All rights reserved.
+      </footer>
     </>
   );
 };
